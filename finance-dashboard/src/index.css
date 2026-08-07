@@ -10,3 +10,13 @@ html, body, #root {
   min-height: 100vh;
   box-sizing: border-box;
 }
+
+.donut-holder {
+  width: 75%;
+  justify-self: center;
+}
+
+.line-holder {
+  width: 75%;
+  justify-self: center;
+}
