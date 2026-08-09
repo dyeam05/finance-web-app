@@ -12,6 +12,9 @@ import { CurrentMonthIncomeTest } from './TestData'
 import { SavingsInvestmentsTrendTest } from './TestData'
 
 // Using foreach for now as a test. Eventually, backend will calculate and send sum in data.
+
+let currentMonth = "July";
+
 let currentMonthExpenseTotal = 0;
 let currentMonthIncomeTotal = 0;
 
@@ -33,7 +36,6 @@ function App() {
     <div className="container-fluid">
       <div className="container">
         <h1 className="display-5 text-center mt-5">Personal Finance Dashboard</h1>
-
         <div className="row mt-5">
           <div className="card mb-4">
             <div className="card-header">
@@ -101,6 +103,10 @@ function App() {
                       Total Saved:
                       <p className="text-success">${currentMonthExpenseTotal}</p>
                     </h3>
+                    <h3 className="text-center">
+                      {currentMonth} Contributions:
+                      <p className="text-success">${currentMonthExpenseTotal}</p>
+                    </h3>
                     <button type="button" className="btn btn-outline-secondary">
                       <i className="bi bi-plus-lg"></i>
                       Add Savings Contribution
@@ -113,6 +119,10 @@ function App() {
                     <h3 className="text-center">
                       Total Invested:
                       <p className="text-success">${currentMonthExpenseTotal}</p>
+                    </h3>
+                    <h3 className='text-center'>
+                      {currentMonth} Contributions: 
+                      <p className='text-success'>${currentMonthExpenseTotal}</p>
                     </h3>
                     <button type="button" className="btn btn-outline-secondary">
                       <i className="bi bi-plus-lg"></i>
@@ -188,7 +198,6 @@ function App() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
