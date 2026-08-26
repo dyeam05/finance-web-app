@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { IncomeExpensesLine, SavingsInvestmentsLine } from './charts'
@@ -10,9 +7,9 @@ import { CurrentMonthExpensesTest, IncomeExpenseTrendTest } from './TestData'
 import { CurrentLastTest } from './TestData'
 import { CurrentMonthIncomeTest } from './TestData'
 import { SavingsInvestmentsTrendTest } from './TestData'
+import { IncomeAndExpenses, SavingsAndInvestments } from './HomeFunctions';
 
-// Using foreach for now as a test. Eventually, backend will calculate and send sum in data.
-
+// ----- TEST DATA ----- //
 let currentMonth = "July";
 
 let currentMonthExpenseTotal = 0;
@@ -28,7 +25,7 @@ CurrentMonthIncomeTest.forEach((incomeType) => {
 
 currentMonthExpenseTotal = currentMonthExpenseTotal.toFixed(2);
 currentMonthIncomeTotal = currentMonthIncomeTotal.toFixed(2);
-
+// ---------- //
 
 function App() {
   return (
@@ -50,157 +47,94 @@ function App() {
               </div>
             </div>
             <div className="card-body">
-              <div className="row">
-                <div className="col">
-                  <div className="d-flex flex-column justify-content-center">
-                    <h3 className="text-center">
-                      Total Expenses:
-                      <p className="text-danger">${currentMonthExpenseTotal} 
-                      <button type='button' className="btn btn-outline-secondary ms-3">
-                        <i className='bi bi-info-circle'></i>
-                      </button></p>
-                    </h3>
-                    <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#addExpenseModal">
-                      <i className="bi bi-plus-lg"></i>
-                      Add Expense
-                    </button>
-                  </div>
-                  <div className="donut-holder">
-                    < MonthlyDonut
-                        labels={CurrentMonthExpensesTest.map((data) => data.Type)}
-                        labelTitle={'Money Spent '}
-                        dataValues={CurrentMonthExpensesTest.map((data) => data.Amount)} />
-                  </div>
-                </div>
-                <div className="col justify-content-center">
-                  <div className="d-flex flex-column justify-content-center">
-                    <h3 className="text-center">
-                      Total Income:
-                      <p className="text-success">${currentMonthIncomeTotal}
-                        <button type="button" className="btn btn-outline-secondary ms-3">
-                          <i className="bi bi-info-circle"></i>
-                        </button>
-                      </p>
-                    </h3>
-                    <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#addIncomeModal">
-                      <i className="bi bi-plus-lg"></i>
-                      Add Income
-                    </button>
-                  </div>
-                  <div className="donut-holder">
-                    < MonthlyDonut 
-                        labels={CurrentMonthIncomeTest.map((data) => data.Type)}
-                        labelTitle={'Money Made '}
-                        dataValues={CurrentMonthIncomeTest.map((data) => data.Amount)} />
-                  </div>
-                </div>
-              </div>
-              <div className="row mt-4">
-                <h3 className="text-center">Savings and Investments:</h3>
-                <div className='col'>
-                  <div className="d-flex flex-column justify-content-center">
-                    <h3 className="text-center">
-                      Total Saved:
-                      <p className="text-success">${currentMonthExpenseTotal}</p>
-                    </h3>
-                    <h3 className="text-center">
-                      {currentMonth} Contributions:
-                      <p className="text-success">${currentMonthExpenseTotal}</p>
-                    </h3>
-                    <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#addSavingsModal">
-                      <i className="bi bi-plus-lg"></i>
-                      Add Savings Contribution
-                    </button>
-                  </div>
+              <IncomeAndExpenses></IncomeAndExpenses>
+              <SavingsAndInvestments></SavingsAndInvestments>
+            </div>
+          </div>
 
+          <div className="modal fade" id="addExpenseModal" tabindex="-1" aria-labelledby="addExpenseModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title fs-5" id="addExpenseModalLabel">Add Expense</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div className='col'>
-                  <div className="d-flex flex-column justify-content-center">
-                    <h3 className="text-center">
-                      Total Invested:
-                      <p className="text-success">${currentMonthExpenseTotal}</p>
-                    </h3>
-                    <h3 className='text-center'>
-                      {currentMonth} Contributions: 
-                      <p className='text-success'>${currentMonthExpenseTotal}</p>
-                    </h3>
-                    <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#addInvestmentsModal">
-                      <i className="bi bi-plus-lg"></i>
-                      Add Investing Contribution
-                    </button>
-                  </div>
+                <div className="modal-body">
+                  <form>
+                    <div className='mb-3'>
+                      <label for='expenseName' className='form-label'>Name</label>
+                      <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                      <div id='expenseNameHelp' className='form-text'>Add a name to this expense</div>
+                    </div>
+                    <div className='mb-3'>
+                      <label for='expenseType' className='form-label'>Type</label>
+                      <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                      <div id='expenseTypeHelp' className='form-text'>Select Expense Type (i.e. Gas, Incidentals, Bills, etc.)</div>
+                    </div>
+                    <div className='mb-3'>
+                      <label for='expenseAmount' className='form-label'>Amount</label>
+                      <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                      <div id='expenseAmountHelp' className='form-text'>Input total amount spent on expense (i.e. 3.50)</div>
+                    </div>
+                  </form>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-primary">Save changes</button> 
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="modal fade" id="addExpenseModal" tabindex="-1" aria-labelledby="addExpenseModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title fs-5" id="addExpenseModalLabel">Add Expenses</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div className="modal fade" id="addIncomeModal" tabindex="-1" aria-labelledby="addIncomeModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title fs-5" id="addIncomeModalLabel">Add Income</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  This is where expenses are added:
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button> 
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal fade" id="addIncomeModal" tabindex="-1" aria-labelledby="addIncomeModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title fs-5" id="addIncomeModalLabel">Add Income</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+                <div className="modal-body">
                   This is where income is added:
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button> 
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-primary">Save changes</button> 
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="modal fade" id="addSavingsModal" tabindex="-1" aria-labelledby="addSavingsModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title fs-5" id="addSavingsModalLabel">Add Savings Contributions</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div className="modal fade" id="addSavingsModal" tabindex="-1" aria-labelledby="addSavingsModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title fs-5" id="addSavingsModalLabel">Add Savings Contributions</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                   This is where savings contributions are added:
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button> 
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-primary">Save changes</button> 
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="modal fade" id="addInvestmentsModal" tabindex="-1" aria-labelledby="addInvestmentsModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title fs-5" id="addInvestmentsModalLabel">Add Investments</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div className="modal fade" id="addInvestmentsModal" tabindex="-1" aria-labelledby="addInvestmentsModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title fs-5" id="addInvestmentsModalLabel">Add Investments</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                   This is where investments contributions are added:
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button> 
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-primary">Save changes</button> 
                 </div>
               </div>
             </div>
