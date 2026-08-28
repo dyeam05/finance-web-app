@@ -10,7 +10,7 @@ import { SavingsInvestmentsTrendTest } from './TestData'
 import { IncomeAndExpenses, SavingsAndInvestments } from './HomeFunctions';
 
 // ----- TEST DATA ----- //
-let currentMonth = "July";
+let currentMonth = "(Current Month)";
 
 let currentMonthExpenseTotal = 0;
 let currentMonthIncomeTotal = 0;
@@ -94,7 +94,23 @@ function App() {
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
-                  This is where income is added:
+                  <form>
+                    <div className='mb-3'>
+                      <label for='expenseName' className='form-label'>Name</label>
+                      <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                      <div id='expenseNameHelp' className='form-text'>Add a name for this income source</div>
+                    </div>
+                    <div className='mb-3'>
+                      <label for='expenseType' className='form-label'>Type</label>
+                      <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                      <div id='expenseTypeHelp' className='form-text'>Select Income Type (i.e. Paycheck, Gift, Money Transfer, etc.)</div>
+                    </div>
+                    <div className='mb-3'>
+                      <label for='expenseAmount' className='form-label'>Amount</label>
+                      <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                      <div id='expenseAmountHelp' className='form-text'>Input total amount made (i.e. 3.50)</div>
+                    </div>
+                  </form>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -112,7 +128,23 @@ function App() {
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
-                  This is where savings contributions are added:
+                  <form>
+                    <div className='mb-3'>
+                      <label for='expenseName' className='form-label'>Account Name</label>
+                      <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                      <div id='expenseNameHelp' className='form-text'>Specify Name of Account for Contribution</div>
+                    </div>
+                    <div className='mb-3'>
+                      <label for='expenseType' className='form-label'>Account Type</label>
+                      <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                      <div id='expenseTypeHelp' className='form-text'>Select Account Type (i.e. Bank, Retirement, etc.)</div>
+                    </div>
+                    <div className='mb-3'>
+                      <label for='expenseAmount' className='form-label'>Amount</label>
+                      <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                      <div id='expenseAmountHelp' className='form-text'>Input total amount contributed to savings (i.e. 3.50)</div>
+                    </div>
+                  </form>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -130,7 +162,23 @@ function App() {
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
-                  This is where investments contributions are added:
+                  <form>
+                  <div className='mb-3'>
+                    <label for='expenseName' className='form-label'>Account Name</label>
+                    <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                    <div id='expenseNameHelp' className='form-text'>Specify Name of Account for Contribution</div>
+                  </div>
+                  <div className='mb-3'>
+                    <label for='expenseType' className='form-label'>Account Type</label>
+                    <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                    <div id='expenseTypeHelp' className='form-text'>Select Account Type (i.e. Fidelity, SoFi, etc.)</div>
+                  </div>
+                  <div className='mb-3'>
+                    <label for='expenseAmount' className='form-label'>Amount</label>
+                    <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                    <div id='expenseAmountHelp' className='form-text'>Input total amount contributed to Investments (i.e. 3.50)</div>
+                  </div>
+                </form>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

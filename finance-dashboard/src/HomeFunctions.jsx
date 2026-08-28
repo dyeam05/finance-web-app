@@ -10,7 +10,7 @@ import { CurrentMonthIncomeTest } from './TestData'
 import { SavingsInvestmentsTrendTest } from './TestData'
 
 // ----- TEST DATA ----- //
-let currentMonth = "July";
+let currentMonth = "(Current Month)";
 
 let currentMonthExpenseTotal = 0;
 let currentMonthIncomeTotal = 0;
