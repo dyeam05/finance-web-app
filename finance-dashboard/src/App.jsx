@@ -53,7 +53,7 @@ function App() {
           </div>
 
           <div className="modal fade" id="addExpenseModal" tabindex="-1" aria-labelledby="addExpenseModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-xl">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title fs-5" id="addExpenseModalLabel">Add Expense</h5>
@@ -61,20 +61,27 @@ function App() {
                 </div>
                 <div className="modal-body">
                   <form>
-                    <div className='mb-3'>
-                      <label for='expenseName' className='form-label'>Name</label>
-                      <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
-                      <div id='expenseNameHelp' className='form-text'>Add a name to this expense</div>
-                    </div>
-                    <div className='mb-3'>
-                      <label for='expenseType' className='form-label'>Type</label>
-                      <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
-                      <div id='expenseTypeHelp' className='form-text'>Select Expense Type (i.e. Gas, Incidentals, Bills, etc.)</div>
-                    </div>
-                    <div className='mb-3'>
-                      <label for='expenseAmount' className='form-label'>Amount</label>
-                      <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
-                      <div id='expenseAmountHelp' className='form-text'>Input total amount spent on expense (i.e. 3.50)</div>
+                    <div className='row'>
+                      <div className='col mb-3'>
+                        <label for='expenseName' className='form-label'>Name</label>
+                        <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                        <div id='expenseNameHelp' className='form-text'>Add a name to this expense</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseType' className='form-label'>Type</label>
+                        <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                        <div id='expenseTypeHelp' className='form-text'>Select Expense Type (i.e. Gas, Incidentals, Bills, etc.)</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseAmount' className='form-label'>Amount</label>
+                        <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                        <div id='expenseAmountHelp' className='form-text'>Input total amount spent on expense (i.e. 3.50)</div>
+                      </div>
+                      <div className='col mb-3 align-content-center col-auto'>
+                        <button type='button mb-3' className='btn btn-sm btn-outline-secondary col-auto h-auto'>
+                          <i className='bi bi-plus-circle'></i>
+                        </button>
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -87,7 +94,7 @@ function App() {
           </div>
 
           <div className="modal fade" id="addIncomeModal" tabindex="-1" aria-labelledby="addIncomeModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-xl">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title fs-5" id="addIncomeModalLabel">Add Income</h5>
@@ -95,20 +102,27 @@ function App() {
                 </div>
                 <div className="modal-body">
                   <form>
-                    <div className='mb-3'>
-                      <label for='expenseName' className='form-label'>Name</label>
-                      <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
-                      <div id='expenseNameHelp' className='form-text'>Add a name for this income source</div>
-                    </div>
-                    <div className='mb-3'>
-                      <label for='expenseType' className='form-label'>Type</label>
-                      <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
-                      <div id='expenseTypeHelp' className='form-text'>Select Income Type (i.e. Paycheck, Gift, Money Transfer, etc.)</div>
-                    </div>
-                    <div className='mb-3'>
-                      <label for='expenseAmount' className='form-label'>Amount</label>
-                      <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
-                      <div id='expenseAmountHelp' className='form-text'>Input total amount made (i.e. 3.50)</div>
+                    <div className='row'>
+                      <div className='col mb-3'>
+                        <label for='expenseName' className='form-label'>Name</label>
+                        <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                        <div id='expenseNameHelp' className='form-text'>Add a name for this income source</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseType' className='form-label'>Type</label>
+                        <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                        <div id='expenseTypeHelp' className='form-text'>Select Income Type (i.e. Paycheck, Gift, Money Transfer, etc.)</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseAmount' className='form-label'>Amount</label>
+                        <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                        <div id='expenseAmountHelp' className='form-text'>Input total amount made (i.e. 3.50)</div>
+                      </div>
+                      <div className='col mb-3 align-content-center col-auto'>
+                        <button type='button mb-3' className='btn btn-sm btn-outline-secondary col-auto h-auto'>
+                          <i className='bi bi-plus-circle'></i>
+                        </button>
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -121,7 +135,7 @@ function App() {
           </div>
 
           <div className="modal fade" id="addSavingsModal" tabindex="-1" aria-labelledby="addSavingsModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-xl">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title fs-5" id="addSavingsModalLabel">Add Savings Contributions</h5>
@@ -129,20 +143,27 @@ function App() {
                 </div>
                 <div className="modal-body">
                   <form>
-                    <div className='mb-3'>
-                      <label for='expenseName' className='form-label'>Account Name</label>
-                      <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
-                      <div id='expenseNameHelp' className='form-text'>Specify Name of Account for Contribution</div>
-                    </div>
-                    <div className='mb-3'>
-                      <label for='expenseType' className='form-label'>Account Type</label>
-                      <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
-                      <div id='expenseTypeHelp' className='form-text'>Select Account Type (i.e. Bank, Retirement, etc.)</div>
-                    </div>
-                    <div className='mb-3'>
-                      <label for='expenseAmount' className='form-label'>Amount</label>
-                      <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
-                      <div id='expenseAmountHelp' className='form-text'>Input total amount contributed to savings (i.e. 3.50)</div>
+                    <div className='row'>
+                      <div className='col mb-3'>
+                        <label for='expenseName' className='form-label'>Account Name</label>
+                        <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                        <div id='expenseNameHelp' className='form-text'>Specify Name of Account for Contribution</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseType' className='form-label'>Account Type</label>
+                        <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                        <div id='expenseTypeHelp' className='form-text'>Select Account Type (i.e. Bank, Retirement, etc.)</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseAmount' className='form-label'>Amount</label>
+                        <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                        <div id='expenseAmountHelp' className='form-text'>Input total amount contributed to savings (i.e. 3.50)</div>
+                      </div>
+                      <div className='col mb-3 align-content-center col-auto'>
+                        <button type='button mb-3' className='btn btn-sm btn-outline-secondary col-auto h-auto'>
+                          <i className='bi bi-plus-circle'></i>
+                        </button>
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -155,7 +176,7 @@ function App() {
           </div>
 
           <div className="modal fade" id="addInvestmentsModal" tabindex="-1" aria-labelledby="addInvestmentsModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-xl">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title fs-5" id="addInvestmentsModalLabel">Add Investments</h5>
@@ -163,22 +184,29 @@ function App() {
                 </div>
                 <div className="modal-body">
                   <form>
-                  <div className='mb-3'>
-                    <label for='expenseName' className='form-label'>Account Name</label>
-                    <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
-                    <div id='expenseNameHelp' className='form-text'>Specify Name of Account for Contribution</div>
-                  </div>
-                  <div className='mb-3'>
-                    <label for='expenseType' className='form-label'>Account Type</label>
-                    <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
-                    <div id='expenseTypeHelp' className='form-text'>Select Account Type (i.e. Fidelity, SoFi, etc.)</div>
-                  </div>
-                  <div className='mb-3'>
-                    <label for='expenseAmount' className='form-label'>Amount</label>
-                    <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
-                    <div id='expenseAmountHelp' className='form-text'>Input total amount contributed to Investments (i.e. 3.50)</div>
-                  </div>
-                </form>
+                    <div className='row'>
+                      <div className='col mb-3'>
+                        <label for='expenseName' className='form-label'>Account Name</label>
+                        <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                        <div id='expenseNameHelp' className='form-text'>Specify Name of Account for Contribution</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseType' className='form-label'>Account Type</label>
+                        <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                        <div id='expenseTypeHelp' className='form-text'>Select Account Type (i.e. Fidelity, SoFi, etc.)</div>
+                      </div>
+                      <div className='col mb-3'>
+                        <label for='expenseAmount' className='form-label'>Amount</label>
+                        <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                        <div id='expenseAmountHelp' className='form-text'>Input total amount contributed to Investments (i.e. 3.50)</div>
+                      </div>
+                      <div className='col mb-3 align-content-center col-auto'>
+                        <button type='button mb-3' className='btn btn-sm btn-outline-secondary col-auto h-auto'>
+                          <i className='bi bi-plus-circle'></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -235,7 +263,7 @@ function App() {
                     labels={IncomeExpenseTrendTest.map((data) => data.Month)}
                     incomeData={IncomeExpenseTrendTest.map((data) => data.Income)}
                     expensesData={IncomeExpenseTrendTest.map((data) => data.Expenses)}
-                    />
+                  />
                 </div>
               </div>
 
@@ -246,7 +274,7 @@ function App() {
                       labels={SavingsInvestmentsTrendTest.map((data) => data.Month)}
                       investmentsData={SavingsInvestmentsTrendTest.map((data) => data.InvestAmount)}
                       savingsData={SavingsInvestmentsTrendTest.map((data) => data.SavingsAmount)}
-                    />
+                  />
                 </div>
               </div>
             </div>
