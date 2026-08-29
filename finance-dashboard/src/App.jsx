@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import * as bootstrap from 'bootstrap';
 import { IncomeExpensesLine, SavingsInvestmentsLine } from './charts'
 import { MonthlyDonut } from './charts'
 import { CurrentMonthExpensesTest, IncomeExpenseTrendTest } from './TestData'
@@ -28,6 +29,21 @@ currentMonthIncomeTotal = currentMonthIncomeTotal.toFixed(2);
 // ---------- //
 
 function App() {
+  useEffect(() => {
+    // Select all elements with the tooltip attribute
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+
+    // Map through and initialize each one
+    const tooltipList = [...tooltipTriggerList].map(
+      (el) => new bootstrap.Tooltip(el)
+    );
+
+    // Optional: Clean up on unmount if navigating away
+    return () => {
+      tooltipList.forEach((tooltip) => tooltip.dispose());
+    };
+  }, []);
+
   return (
     // Nav bar
     <div className="container-fluid">

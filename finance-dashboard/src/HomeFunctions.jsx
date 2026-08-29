@@ -54,8 +54,10 @@ export function MonthlyIncome() {
                 <h3 className="text-center">
                     Total Income:
                     <p className="text-success">${currentMonthIncomeTotal}
-                        <button type="button" className="btn btn-outline-secondary ms-3" onClick={() => setIncomeView(!incomeView)}>
-                            <i className="bi bi-info-circle"></i>
+                        <button type="button" className="btn btn-outline-secondary ms-3" 
+                        onClick={() => setIncomeView(!incomeView)} data-bs-toggle='tooltip' data-bs-placement='bottom'
+                        title={`${incomeView ? "View Income Source List" : "View Income Totals Donut"}`}>
+                            <i className={`bi ${incomeView ? 'bi-card-list' : 'bi-graph-up'}`}></i>
                         </button>
                     </p>
                 </h3>
@@ -95,9 +97,11 @@ export function MonthlyExpenses() {
                 <h3 className="text-center">
                     Total Expenses:
                     <p className="text-danger">${currentMonthExpenseTotal}
-                        <button type='button' className="btn btn-outline-secondary ms-3" onClick={() => setExpenseView(!expenseView)}>
-                            <i className='bi bi-info-circle'></i>
-                        </button></p>
+                        <button type='button' className="btn btn-outline-secondary ms-3" onClick={() => setExpenseView(!expenseView)}
+                            onClick={() => setExpenseView(!expenseView)} data-bs-toggle='tooltip' data-bs-placement='bottom'
+                            title={`${expenseView ? 'View Full Expense List' : 'View Expense Totals Donut'}`}>
+                            <i className={`bi ${expenseView ? 'bi-card-list' : 'bi-graph-up'}`}></i>
+                            </button></p>
                 </h3>
                 <button type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#addExpenseModal">
                     <i className="bi bi-plus-lg"></i>
