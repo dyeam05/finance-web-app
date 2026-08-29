@@ -97,7 +97,7 @@ export function MonthlyExpenses() {
                 <h3 className="text-center">
                     Total Expenses:
                     <p className="text-danger">${currentMonthExpenseTotal}
-                        <button type='button' className="btn btn-outline-secondary ms-3" onClick={() => setExpenseView(!expenseView)}
+                        <button type='button' className="btn btn-outline-secondary ms-3"
                             onClick={() => setExpenseView(!expenseView)} data-bs-toggle='tooltip' data-bs-placement='bottom'
                             title={`${expenseView ? 'View Full Expense List' : 'View Expense Totals Donut'}`}>
                             <i className={`bi ${expenseView ? 'bi-card-list' : 'bi-graph-up'}`}></i>

@@ -29,6 +29,25 @@ currentMonthIncomeTotal = currentMonthIncomeTotal.toFixed(2);
 // ---------- //
 
 function App() {
+
+  // ----- Dynamic dark mode ----- //
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-bs-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = (theme) => {
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-bs-theme', theme);
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'))
+  };
+  // ---------- //
+
+  // ----- Initialize Bootstrap tooltips ----- //
   useEffect(() => {
     // Select all elements with the tooltip attribute
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -43,12 +62,17 @@ function App() {
       tooltipList.forEach((tooltip) => tooltip.dispose());
     };
   }, []);
+  // ---------- //
+
 
   return (
-    // Nav bar
+
     <div className="container-fluid">
       <div className="container">
         <h1 className="display-5 text-center mt-5">Personal Finance Dashboard</h1>
+        <button type='button' className='btn btn-outline-secondary' onClick={toggleTheme}>
+          <i className={`bi ${theme === 'light' ? 'bi-moon' : 'bi-sun'}`} ></i>
+        </button>
         <div className="row mt-5">
           <div className="card mb-4">
             <div className="card-header">
