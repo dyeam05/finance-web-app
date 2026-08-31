@@ -27,12 +27,14 @@ currentMonthExpenseTotal = currentMonthExpenseTotal.toFixed(2);
 currentMonthIncomeTotal = currentMonthIncomeTotal.toFixed(2);
 // ---------- //
 
+// Income List Display
 export function IncomeList() {
     return (
         <p>This is a test</p>
     );
 }
 
+// Income Donut Graph
 export function IncomeDonut() {
     return (
         <div className="donut-holder">
@@ -71,6 +73,7 @@ export function MonthlyIncome() {
     );
 }
 
+// Expense Donut Graph
 export function ExpenseDonut() {
     return (
         <div className="donut-holder">
@@ -82,6 +85,7 @@ export function ExpenseDonut() {
     );
 }
 
+// Expense List Display
 export function ExpenseList() {
     return ( 
         <p>This is a test</p>
@@ -127,6 +131,67 @@ export function IncomeAndExpenses() {
                 </div>
             </div>
         </div>
+    );
+};
+
+export function DynamicForm() {
+    const [inputFields, setInputFields] = useState([{value: ''}]);
+
+    // Handle input change
+    const handleInputChange = (index, event) => {
+        const values = [...inputFields];
+        values[index].value = event.target.value;
+        setInputFields(values);
+    };
+
+    // Add new field
+    const handleAddFields = () => {
+        setInputFields([...inputFields, { value: ''}]);
+    };
+
+    // Remove field
+    const handleRemoveFields = index => {
+        const values = [...inputFields];
+        values.splice(index, 1);
+        setInputFields(values);
+    };
+
+    // Handle form submission
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log('Form Values:', inputFields);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            {inputFields.map((inputField, index) => (
+                <div className='row'>
+                    <div className='col mb-3'>
+                        <label for='expenseName' className='form-label'>Name</label>
+                        <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
+                        <div id='expenseNameHelp' className='form-text'>Add a name to this expense</div>
+                    </div>
+                    <div className='col mb-3'>
+                        <label for='expenseType' className='form-label'>Type</label>
+                        <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
+                        <div id='expenseTypeHelp' className='form-text'>Select Expense Type (i.e. Gas, Incidentals, Bills, etc.)</div>
+                    </div>
+                    <div className='col mb-3'>
+                        <label for='expenseAmount' className='form-label'>Amount</label>
+                        <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
+                        <div id='expenseAmountHelp' className='form-text'>Input total amount spent on expense (i.e. 3.50)</div>
+                    </div>
+                    <div className='col mb-3 align-content-center col-auto'>
+                        <button type='button mb-3' className='btn btn-sm btn-outline-secondary col-auto h-auto' onClick={handleAddFields}>
+                            <i className='bi bi-plus-circle'></i>
+                        </button>
+                        <button type='button mb-3' className='btn btn-sm btn-outline-danger col-auto h-auto' onClick={handleRemoveFields}>
+                            <i className='bi bi-x-circle'></i>
+                        </button>
+                     </div>
+                </div>
+            ))}
+        </form>
     );
 };
 

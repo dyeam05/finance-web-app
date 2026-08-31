@@ -8,7 +8,7 @@ import { CurrentMonthExpensesTest, IncomeExpenseTrendTest } from './TestData'
 import { CurrentLastTest } from './TestData'
 import { CurrentMonthIncomeTest } from './TestData'
 import { SavingsInvestmentsTrendTest } from './TestData'
-import { IncomeAndExpenses, SavingsAndInvestments } from './HomeFunctions';
+import { DynamicForm, IncomeAndExpenses, SavingsAndInvestments } from './HomeFunctions';
 
 // ----- TEST DATA ----- //
 let currentMonth = "(Current Month)";
@@ -100,34 +100,11 @@ function App() {
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
-                  <form>
-                    <div className='row'>
-                      <div className='col mb-3'>
-                        <label for='expenseName' className='form-label'>Name</label>
-                        <input type='text' className='form-control' id='expenseName' aria-describedby='expenseNameHelp'></input>
-                        <div id='expenseNameHelp' className='form-text'>Add a name to this expense</div>
-                      </div>
-                      <div className='col mb-3'>
-                        <label for='expenseType' className='form-label'>Type</label>
-                        <input type='text' className='form-control' id='expenseType' aria-describedby='expenseTypeHelp'></input>
-                        <div id='expenseTypeHelp' className='form-text'>Select Expense Type (i.e. Gas, Incidentals, Bills, etc.)</div>
-                      </div>
-                      <div className='col mb-3'>
-                        <label for='expenseAmount' className='form-label'>Amount</label>
-                        <input type='text' className='form-control' id='expenseAmount' aria-describedby='expenseAmountHelp'></input>
-                        <div id='expenseAmountHelp' className='form-text'>Input total amount spent on expense (i.e. 3.50)</div>
-                      </div>
-                      <div className='col mb-3 align-content-center col-auto'>
-                        <button type='button mb-3' className='btn btn-sm btn-outline-secondary col-auto h-auto'>
-                          <i className='bi bi-plus-circle'></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
+                  <DynamicForm></DynamicForm>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save changes</button> 
+                  <button type="submit" className="btn btn-primary">Save Changes</button> 
                 </div>
               </div>
             </div>
